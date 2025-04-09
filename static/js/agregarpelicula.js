@@ -41,7 +41,7 @@ if (estado === "True") {
     text: mensaje,
     confirmButtonText: 'Aceptar'
 }).then(() => {
-    window.location.href = '/listapelicula/';
+    window.location.href = '/listpelicula/';
 }
 );
 } else 

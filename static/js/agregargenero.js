@@ -26,7 +26,7 @@ if (estado === "True") {
     text: mensaje,
     confirmButtonText: 'Aceptar'
 }).then(() => {
-    window.location.href = '/listargenero/';
+    window.location.href = '/listgenero/';
 }
 );
 } else 
