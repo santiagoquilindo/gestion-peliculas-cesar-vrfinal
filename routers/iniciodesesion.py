@@ -12,14 +12,14 @@ def login():
     if request.method == 'POST':
         usuario_input = request.form['usuario']
         contrasena_input = request.form['clave']
-        # captcha_response = request.form['g-recaptcha-response']
-        # secret_key = "6LenzQ8rAAAAAOAE53gA8-09eiNKNCeStee2Nez-"
-        # captcha_verify_url = "https://www.google.com/recaptcha/api/siteverify"
-        # payload = {'secret': secret_key, 'response': captcha_response}
-        # captcha_verification = requests.post(captcha_verify_url, data=payload).json()
-        # if not captcha_verification.get('success'):
-        #     flash('El CAPTCHA no es valido. Intenta nuevamente.', 'error')
-        #     return redirect(url_for('login'))
+        captcha_response = request.form['g-recaptcha-response']
+        secret_key = "6Le2JBErAAAAAK19fT6O89e5jLjxfNiAYu6poX5e"
+        captcha_verify_url = "https://www.google.com/recaptcha/api/siteverify"
+        payload = {'secret': secret_key, 'response': captcha_response}
+        captcha_verification = requests.post(captcha_verify_url, data=payload).json()
+        if not captcha_verification.get('success'):
+             flash('El CAPTCHA no es valido. Intenta nuevamente.', 'error')
+             return redirect(url_for('login'))
         usuario_db = Usuario.objects(usuario=usuario_input).first()
         if usuario_db and check_password_hash(usuario_db.password, contrasena_input):
             session['usuario_id'] = str(usuario_db.id)
