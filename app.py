@@ -3,6 +3,8 @@ from flask_mongoengine import MongoEngine
 from flask_cors import CORS
 from flask import session, flash
 import os
+import requests
+
 from dotenv import load_dotenv
 from flask_mail import Mail, Message
 app = Flask(__name__)  
