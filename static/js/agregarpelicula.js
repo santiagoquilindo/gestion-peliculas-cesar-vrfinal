@@ -19,7 +19,7 @@ document.getElementById("formPelicula").addEventListener("submit", function(even
         foto: foto
     };
 
-    fetch('/agregarpelicula/', {
+    fetch('/agrepeliculas/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

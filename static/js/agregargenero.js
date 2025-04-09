@@ -5,7 +5,7 @@ document.getElementById("formGenero").addEventListener("submit", function(event)
 
     const data = { nombre: nombreGenero };
 
-    fetch('/agregargenero/', {
+    fetch('/agregenero/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
