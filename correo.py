@@ -4,7 +4,7 @@ import yagmail
 def enviar_correo_asincrono(correo_destino, asunto, mensaje):
     def enviar():
         try:
-            yag = yagmail.SMTP("juanmenxz9@gmail.com", "wgqsxzviykbrhdid", encoding="utf-8")
+            yag = yagmail.SMTP("santiagoquilindo32@gmail.com", "devoxgkdtzkduepy", encoding="utf-8")
             yag.send(to=correo_destino, subject=asunto, contents=mensaje.encode('utf-8').decode('utf-8'))
             print("Correo enviado exitosamente.")
         except Exception as e:
