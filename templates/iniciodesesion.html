@@ -1,0 +1,36 @@
+{% extends 'principal.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 500px;">
+  <h2 class="mb-4 text-center">Iniciar sesión</h2>
+
+  <form method="POST" action="/" class="border p-4 rounded shadow-sm bg-light">
+    <div class="mb-3">
+      <label for="usuario" class="form-label">Usuario</label>
+      <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingrese su usuario" required>
+    </div>
+    <div class="mb-3">
+      <label for="clave" class="form-label">Contraseña</label>
+      <input type="password" name="clave" id="clave" class="form-control" placeholder="Ingrese su contraseña" required>
+    </div>
+    <!-- ReCAPTCHA opcional -->
+    <!-- <div class="g-recaptcha mb-3" data-sitekey="6LenzQ8rAAAAAFjHnby0KXxZ0O45kEHRj49DHQXG"></div> -->
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </div>
+  </form>
+  <div class="text-center mt-3">
+    <p>¿Olvidaste tu contraseña? <a href="/recuperar">Recupérala aquí</a></p>
+  </div>
+  {% with mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+      <div class="alert alert-danger mt-3 text-center" role="alert">
+        {{ mensajes[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+</div>
+<!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+{% endblock %}

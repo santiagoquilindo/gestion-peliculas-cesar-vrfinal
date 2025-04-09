@@ -1,0 +1,35 @@
+{% extends 'principal.html' %}
+
+{% block content %}
+<h2>Lista de Pelicula</h2>
+<h1>Editar Género</h1>
+
+<form method="POST">
+    <label for="codigo">Codigo</label>
+    <input type="text" name="codigo" value="{{ pelicula.codigo }}" required>
+    <label for="titulo">Titulo</label>
+    <input type="text" name="titulo" value="{{ pelicula.titulo }}" required>
+    <label for="protagonista">Protagonista</label>
+    <input type="text" name="protagonista" value="{{ pelicula.protagonista }}" required>
+    <label for="duracion">Duracion</label>
+    <input type="text" name="duracion" value="{{ pelicula.duracion }}" required>
+    <label for="resumen">Resumen</label>
+    <input type="text" name="resumen" value="{{ pelicula.resumen }}" required>
+    <label for="foto">Foto</label>
+    <input type="text" name="foto" value="{{ pelicula.foto }}" required>
+    <label for="genero">Género</label>
+    <select class="form-control" id="genero" name="genero"  value = "{{ pelicula.genero.id }}" required>
+        <option value="" selected>Selecciona un Género</option>
+        {% for genero in generos %}
+            <option value="{{ genero.id }}">{{ genero.nombre }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Actualizar Pelicula</button>
+</form>
+<script>
+  document.getElementById('genero').value = "{{ pelicula.genero.id }}";
+</script>
+
+<br>
+<a href="{{ url_for('listGenero') }}">Volver a la lista de Peliculas</a>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'principal.html' %}
+{% block content %}
+<h2>Agregar Película</h2>
+<form id="formPelicula" method="POST" action="/agregarpelicula/">
+  <div class="form-group">
+    <label for="codigo">Código</label>
+    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" required />
+  </div>
+  <div class="form-group">
+    <label for="titulo">Título</label>
+    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" required />
+  </div>
+  <div class="form-group">
+    <label for="protagonista">Protagonista</label>
+    <input type="text" class="form-control" id="protagonista" name="protagonista" placeholder="Protagonista" required />
+  </div>
+  <div class="form-group">
+    <label for="duracion">Duración</label>
+    <input type="text" class="form-control" id="duracion" name="duracion" placeholder="Duración" required />
+  </div>
+  <div class="form-group">
+    <label for="resumen">Resumen</label>
+    <textarea class="form-control" id="resumen" name="resumen" rows="3" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="foto">Foto</label>
+    <textarea class="form-control" id="foto" name="foto" rows="3" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="genero">Género</label>
+    <select class="form-control" id="genero" name="genero" required>
+      <option value="" disabled selected>Selecciona un Género</option>
+      {% for genero in generos %}
+          <option value="{{ genero.id }}">{{ genero.nombre }}</option>
+      {% endfor %}
+  </select>
+  
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar Película</button>
+  <button type="reset" class="btn btn-danger">Cancelar</button>
+</form>
+
+<div id="alert-container" data-estado="{{ estado }}" data-mensaje="{{ mensaje }}"></div>
+
+{% endblock %}

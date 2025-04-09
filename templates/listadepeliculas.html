@@ -1,0 +1,43 @@
+{% extends 'principal.html' %}
+
+{% block content %}
+<h2>Lista de Películas</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Código</th>
+      <th scope="col">Título</th>
+      <th scope="col">Protagonista</th>
+      <th scope="col">Duración</th>
+      <th scope="col">Resumen</th>
+      <th scope="col">Foto</th>
+      <th scope="col">Género</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pelicula in peliculas %}
+    <td>{{ loop.index }}</td>
+      <td>{{ pelicula.codigo }}</td>
+      <td>{{ pelicula.titulo }}</td>
+      <td>{{ pelicula.protagonista }}</td>
+      <td>{{ pelicula.duracion }}</td>
+      <td>{{ pelicula.resumen }}</td>
+      <td>{{ pelicula.foto }}</td>
+      <td>{{ pelicula.genero.nombre }}</td>
+      <td>
+        <a href="{{ url_for('deletePelicula', id=pelicula.id) }}" onclick="return confirm('¿Estás seguro de que quieres eliminar este género?');">Eliminar</a>
+        <a href="{{ url_for('updatePelicula', id=pelicula.id) }}">Actualizar</a>
+      </td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="2" class="text-center">No hay géneros disponibles.</td>
+      </tr>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
